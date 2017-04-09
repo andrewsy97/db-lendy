@@ -1,0 +1,29 @@
+to do list!
+
+Front end:
+New objects (Scaffold handles)
+Delete (scaffold)
+Read (scaffold)
+Update (scaffold)
+Completeness of operations??
+Events and triggers
+Error handling!!
+Website
+Complicated Transactions
+
+Back end:
+/4 tables
+/3rd normal form
+/primary key and foreign keys
+triggers
+integrity on delete and update (stay consistent)
+/additional constraints
+complicated schema
+secondary indices
+
+Features:
+search
+borrow
+mark as returned
+
+Add prices!!
