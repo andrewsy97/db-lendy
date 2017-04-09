@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  return_date: 2017-04-09 19:34:31
+  returned: false
+
+two:
+  return_date: 2017-04-09 19:34:31
+  returned: false
