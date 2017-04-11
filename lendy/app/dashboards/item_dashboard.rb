@@ -15,6 +15,7 @@ class ItemDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     price: Field::Number,
+    name: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -39,6 +40,7 @@ class ItemDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :price,
+    :name,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -49,12 +51,13 @@ class ItemDashboard < Administrate::BaseDashboard
     :item_type,
     :description,
     :price,
+    :name,
   ].freeze
 
   # Overwrite this method to customize how items are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(item)
-  #   "Item ##{item.id}"
-  # end
+  def display_resource(item)
+    "#{item.name}"
+  end
 end

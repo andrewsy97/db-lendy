@@ -54,7 +54,7 @@ class ReservationDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how reservations are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(reservation)
-  #   "Reservation ##{reservation.id}"
+  # def display_resource(item)
+  #   "Reservation ##{item.name}"
   # end
 end
