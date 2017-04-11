@@ -45,7 +45,7 @@ class ItemTypeDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how item types are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(item_type)
-  #   "ItemType ##{item_type.id}"
-  # end
+  def display_resource(item_type)
+    "#{item_type.name}"
+  end
 end
