@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :items
+    resources :item_types
+    resources :reservations
+    resources :schools
+
+    root to: "users#index"
+  end
+
   resources :reservations
   resources :items
   resources :item_types
