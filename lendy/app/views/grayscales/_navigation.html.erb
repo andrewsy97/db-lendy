@@ -16,13 +16,13 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="admin">About</a>
-                </li>
-                <li>
                     <a class="page-scroll" href="users/sign_in">Sign In</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="admin">Admin</a>
+                </li>
+                <li>
+                    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
                 </li>
             </ul>
         </div>
