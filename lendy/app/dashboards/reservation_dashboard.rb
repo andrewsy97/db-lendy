@@ -15,6 +15,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     returned: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    accepted: Field::Boolean,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,6 +28,8 @@ class ReservationDashboard < Administrate::BaseDashboard
     :user,
     :id,
     :return_date,
+    :returned,
+    :accepted,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +40,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     :id,
     :return_date,
     :returned,
+    :accepted,
     :created_at,
     :updated_at,
   ].freeze
@@ -49,6 +53,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     :user,
     :return_date,
     :returned,
+    :accepted,
   ].freeze
 
   # Overwrite this method to customize how reservations are displayed

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand page-scroll" href="/">
+        <span class="light">Lendy</span> Home
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+        <%= form_tag search_items_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+            <p>
+              <%= text_field_tag :search, params[:search], class: "form-control" %>
+              <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+            </p>
+        <% end %>
+        </li>
+        <li>
+          <a class="page-scroll" href="admin">Admin</a>
+        </li>
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            </li>
+            <li>
+              <%= link_to 'New Item', new_item_path %>
+            </li>
+        <% else %>
+            <li>
+              <%= link_to('Login', new_user_session_path) %>
+            </li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+  <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>

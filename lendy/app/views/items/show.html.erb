@@ -7,12 +7,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @item.user %>
+  <%= @item.user.name %>
 </p>
 
 <p>
   <strong>Item type:</strong>
-  <%= @item.item_type %>
+  <%= @item.item_type.name %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

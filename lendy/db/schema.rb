@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411013325) do
+ActiveRecord::Schema.define(version: 20170412194026) do
 
   create_table "item_types", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170411013325) do
     t.integer  "user_id",     limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.boolean  "accepted"
   end
 
   add_index "reservations", ["item_id"], name: "index_reservations_on_item_id", using: :btree
@@ -69,7 +70,6 @@ ActiveRecord::Schema.define(version: 20170411013325) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
 
   add_foreign_key "items", "item_types"

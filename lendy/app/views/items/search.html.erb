@@ -1,0 +1,10 @@
+<% @items.each do |item| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="text">
+          <%= link_to item.name, items_path(item, :search_id => @search_id) %> <br>
+          <%= item.item_type.name %>
+        </div>
+      </div>
+    </div>
+<% end %>

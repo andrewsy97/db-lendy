@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'grayscales#index'
+  root to: 'items#index'
 
   namespace :admin do
     resources :users
@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   end
 
   resources :reservations
-  resources :items
+  resources :items do
+    collection do
+      get 'search'
+    end
+  end
   resources :item_types
   resources :schools
   devise_for :users, :controllers => { registrations: 'registrations' }
