@@ -40,6 +40,6 @@ Item.create!([
              ])
 
 Reservation.create!([
-                        {return_date: "2017-05-11 21:48:20", returned: true, item_id: 1, user_id: 2, accepted: true},
+                        {return_date: "2017-05-11 21:48:20", returned: false, item_id: 1, user_id: 2, accepted: true},
                         {return_date: "2017-04-10 16:42:16", returned: true, item_id: 3, user_id: 4, accepted: true}
                     ])

@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20170421060924) do
     t.string   "description",    limit: 255
     t.integer  "user_id",        limit: 4
     t.integer  "item_type_id",   limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "price",          limit: 4
     t.string   "name",           limit: 255
-    t.integer  "times_borrowed", limit: 4
+    t.integer  "times_borrowed", limit: 4,   default: 0
   end
 
   add_index "items", ["item_type_id"], name: "index_items_on_item_type_id", using: :btree
