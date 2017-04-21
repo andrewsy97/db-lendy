@@ -5,7 +5,7 @@
         <i class="fa fa-bars"></i>
       </button>
       <a class="navbar-brand page-scroll" href="/">
-        <span class="light">Lendy</span> Home
+        Lendy
       </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +19,7 @@
         <%= form_tag search_items_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
             <p>
               <%= text_field_tag :search, params[:search], class: "form-control" %>
-              <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+              <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
             </p>
         <% end %>
         </li>

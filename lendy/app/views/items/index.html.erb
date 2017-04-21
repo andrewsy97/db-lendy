@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Available Items</h1>
 <tbody>
 <% @items.each do |item| %>
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class ="panel-heading">
         <%= item.description %> <br>
+      </div>
+      <div class="panel-body">
         <%= item.user.name %> <br>
         <%= item.item_type.name %> <br>
+        <%= item.name %> <br>
         <%= link_to 'Show', item %> <br>
-        <%= link_to 'Edit', edit_item_path(item) %> <br>
-        <%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %> <br>
         <% if user_signed_in? %>
             <%= link_to 'Reserve Now!', new_reservation_path(:curr_item => item.id, :item_name => item.name) %>
         <% else %>
