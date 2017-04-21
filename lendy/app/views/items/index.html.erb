@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= item.description %> <br>
-          <%= item.user.name %> <br>
-          <%= item.item_type.name %> <br>
-          <%= link_to 'Show', item %> <br>
-          <%= link_to 'Edit', edit_item_path(item) %> <br>
-          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %> <br>
+<tbody>
+<% @items.each do |item| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= item.description %> <br>
+        <%= item.user.name %> <br>
+        <%= item.item_type.name %> <br>
+        <%= link_to 'Show', item %> <br>
+        <%= link_to 'Edit', edit_item_path(item) %> <br>
+        <%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %> <br>
+        <% if user_signed_in? %>
+            <%= link_to 'Reserve Now!', new_reservation_path(:curr_item => item.id, :item_name => item.name) %>
+        <% else %>
+            <%= link_to 'Sign up now to reserve!', '/users/sign_in' %>
+        <% end %>
+
       </div>
     </div>
-    <% end %>
-  </tbody>
+<% end %>
+</tbody>
 
 <br>
 

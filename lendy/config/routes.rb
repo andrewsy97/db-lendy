@@ -11,11 +11,15 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  resources :reservations
+  resources :reservations do
+    resources :items
+    resources :users
+  end
   resources :items do
     collection do
       get 'search'
     end
+    resources :reservations
   end
   resources :item_types
   resources :schools
