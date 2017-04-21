@@ -32,3 +32,9 @@ h2 {
 h3 {
     font-family: 'Lato', sans-serif;
 }
+.container{
+    max-width: 970px;
+}
+a:link {
+    color: #333333;
+}

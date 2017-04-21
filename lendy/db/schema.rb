@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421030727) do
+ActiveRecord::Schema.define(version: 20170421060924) do
 
   create_table "item_types", force: :cascade do |t|
     t.string   "name",       limit: 255

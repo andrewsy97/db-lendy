@@ -1,28 +1,15 @@
-== README
+Run these things:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+$ brew install elasticsearch
+then open a new terminal window and run elasticsearch
 
-Things you may want to cover:
+bundle install
+bundle update
 
-* Ruby version
+rake db:create && rake db:migrate
 
-* System dependencies
+rake db:seed (if you want seed data)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Most of the functionality is linked on the navigation bar,
+and the user sensitive access to edits is available outside admin,
+which was our first CRUD system for easier debugging.

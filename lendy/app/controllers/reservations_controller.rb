@@ -1,10 +1,34 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :edit, :returned, :update, :destroy]
+  before_action :authenticate_user!
+  before_filter :require_permission, only: :edit
+
+  def require_permission
+    if current_user != Reservation.find(params[:id]).user
+      redirect_to root_path
+      #Or do something else here
+    end
+  end
+
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
+    @rentals_c = []
+    @rentals_o = []
+    @offers = []
+    current_user.items.each() do |i|
+      i.reservations.each() do |r|
+        if r.returned
+          @rentals_o<<r
+        elsif not r.accepted
+          @offers<<r
+        elsif r.accepted and not r.returned
+          @rentals_c<<r
+        end
+      end
+    end
   end
 
   # GET /reservations/1
@@ -19,6 +43,14 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
+    @to_do = Reservation.find(params[:id])
+    print(params)
+    if params[:type] == "acc"
+      @to_do.update_attributes(accepted: true)
+    elsif params[:type] == "ret"
+      @to_do.update_attributes(returned: trues)
+    end
+    redirect_to "reservation#index"
   end
 
   # POST /reservations

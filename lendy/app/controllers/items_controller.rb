@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_filter :require_permission, only: :edit
 
   # GET /items
   # GET /items.json
@@ -19,6 +20,13 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+  end
+
+  def require_permission
+    if current_user.id != Item.find(params[:id]).user
+      redirect_to root_path
+      #Or do something else here
+    end
   end
 
   # GET /items/1/edit

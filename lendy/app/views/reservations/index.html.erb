@@ -1,16 +1,52 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Reservations</h1>
-
-  <% @reservations.each do |reservation| %>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <%= reservation.item.description %> <br>
+<div class='row'>
+  <div class="col-sm-4">
+    <h1>Offers!</h1>
+    <% @offers.each do |r| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= r.item.name %> <br>
+          </div>
+          <div class="panel-body">
+            Description: <%= r.item.description %> <br>
+            Rented by: <%= r.user.name %> <br>
+            Owned by: <%= r.item.user.name %> <br>
+            <br>
+            <%= link_to "Accept Rental", edit_reservation_path("id"=>r, "type"=>"acc") %>
+          </div>
         </div>
-        <div class="panel-body">
-          <%= reservation.user.name %> <br>
-          <%= reservation.item.name %> <br>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <h2>Currently out!</h2>
+    <% @rentals_c.each do |r| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= r.item.name %> <br>
+          </div>
+          <div class="panel-body">
+            Description: <%= r.item.description %> <br>
+            Rented by: <%= r.user.name %> <br>
+            Due on: <%= r.return_date %> <br>
+            <br>
+            <%= link_to "Mark as returned", edit_reservation_path(:id=>r, "type"=>"ret") %>
+          </div>
         </div>
-      </div>
-  <% end %>
-<br>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <h2>Old rentals</h2>
+    <% @rentals_o.each do |rental| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= rental.item.name %> <br>
+          </div>
+          <div class="panel-body">
+            Description: <%= rental.item.description %> <br>
+            Rented by: <%= rental.user.name %> <br>
+            Owned by: <%= rental.item.user.name %> <br>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

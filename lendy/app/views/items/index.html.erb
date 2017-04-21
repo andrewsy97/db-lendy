@@ -7,14 +7,16 @@
         <%= item.description %> <br>
       </div>
       <div class="panel-body">
-        <%= item.user.name %> <br>
+        Owned by <%= item.user.name %> at
+        <%= item.user.school.name %> <br>
         <%= item.item_type.name %> <br>
         <%= item.name %> <br>
+        <br>
         <%= link_to 'Show', item %> <br>
         <% if user_signed_in? %>
             <%= link_to 'Reserve Now!', new_reservation_path(:curr_item => item.id, :item_name => item.name) %>
         <% else %>
-            <%= link_to 'Sign up now to reserve!', '/users/sign_in' %>
+            <%= link_to 'Sign up now to reserve!', '/users/sign_in', class: "btn-default" %>
         <% end %>
 
       </div>

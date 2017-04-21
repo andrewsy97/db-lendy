@@ -15,5 +15,15 @@
   <%= @item.item_type.name %>
 </p>
 
+<p>
+  <strong>Times borrowed:</strong>
+  <%= @item.times_borrowed %>
+</p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @item.id %>
+</p>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
